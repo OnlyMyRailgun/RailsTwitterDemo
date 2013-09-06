@@ -168,7 +168,9 @@ describe User do
       its (:feed) { should_not include(unfollowed_post) }
       
       its (:feed) do
-        
+        followed_user.microposts.each do |micropost|
+          should include(micropost)
+        end
       end
     end
   end
